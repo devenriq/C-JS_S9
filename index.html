@@ -44,12 +44,61 @@
         </div>
         <div class="mb-3">
           <label class="form-label" for="worker-work">Cargo:</label>
-          <input
-            class="form-control"
-            id="worker-work"
-            type="text"
-            placeholder="Ingrese su cargo"
-          />
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="chief"
+              name="work"
+              value="Chief"
+            />
+            <label class="form-check-label" for="chief">Soy jefe</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="analyst"
+              name="work"
+              value="Analyst"
+            />
+            <label class="form-check-label" for="analyst">Soy analista</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="programmer"
+              name="work"
+              value="programmer"
+            />
+            <label class="form-check-label" for="programmer"
+              >Soy programador</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="support"
+              name="work"
+              value="support "
+            />
+            <label class="form-check-label" for="support">Soy de soporte</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="assistant"
+              name="work"
+              value="assistant"
+            />
+            <label class="form-check-label" for="assistant"
+              >Soy asistente</label
+            >
+          </div>
         </div>
       </form>
     </div>
@@ -62,6 +111,9 @@
         this.email = email;
         this.work = work;
       }
+      grossSalary() {}
+      discount() {}
+      netSalary() {}
     }
   </script>
   <script
