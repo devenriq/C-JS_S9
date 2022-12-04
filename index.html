@@ -83,7 +83,7 @@
               type="radio"
               id="support"
               name="work"
-              value="support "
+              value="support"
             />
             <label class="form-check-label" for="support">Soy de soporte</label>
           </div>
@@ -99,11 +99,56 @@
               >Soy asistente</label
             >
           </div>
+          <button
+            class="btn btn-primary"
+            id="submit-button"
+            onclick="displayTest()"
+          >
+            Enviar
+          </button>
         </div>
       </form>
     </div>
   </body>
   <script>
+    const submit = document.querySelector("#submit-button");
+
+    const displayTest = (e) => {
+      e.preventDefault();
+      const element = document.getElementsByName("work");
+      let optionSelected = "";
+      let salary = 0;
+
+      for (let i = 0; i < element.length; i++) {
+        if (element[i].checked) {
+          optionSelected = element[i].value;
+
+          // document.getElementById("result").innerHTML = "hola";
+        }
+      }
+      switch (optionSelected) {
+        case "chief":
+          salary = 5000;
+          break;
+        case "analyst":
+          salary = 4000;
+          break;
+        case "programmer":
+          salary = 3000;
+          break;
+        case "support":
+          salary = 2000;
+          break;
+        case "assistant":
+          salary = 1500;
+          break;
+
+        default:
+          break;
+      }
+      return salary;
+    };
+
     class Worker {
       constructor(name, lastName, email, work) {
         this.name = name;
@@ -111,10 +156,21 @@
         this.email = email;
         this.work = work;
       }
-      grossSalary() {}
-      discount() {}
-      netSalary() {}
+      grossSalary() {
+        const grossSalary = displayTest();
+        console.log(grossSalary);
+        return grossSalary;
+      }
+      discount() {
+        const discount = displayTest() * 0.12;
+        return discount;
+      }
+      netSalary() {
+        const netSalary = displayTest() * 0.88;
+      }
     }
+
+    submit.addEventListener("click", displayTest);
   </script>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
