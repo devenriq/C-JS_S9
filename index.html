@@ -112,8 +112,13 @@
   </body>
   <script>
     const submit = document.querySelector("#submit-button");
+    const name = document.querySelector("#worker-name").value;
+    const lastName = document.querySelector("#worker-lastname").value;
+    const email = document.querySelector("#worker-email").value;
 
     const displayTest = (e) => {
+      console.log(name);
+
       e.preventDefault();
       const element = document.getElementsByName("work");
       let optionSelected = "";
@@ -146,6 +151,7 @@
         default:
           break;
       }
+
       return salary;
     };
 
@@ -169,8 +175,13 @@
         const netSalary = displayTest() * 0.88;
       }
     }
+    const workerConstructor = () => {
+      const newWorker = new Worker(name, lastName, email);
+      console.log(newWorker);
+    };
 
     submit.addEventListener("click", displayTest);
+    submit.addEventListener("click", workerConstructor);
   </script>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
